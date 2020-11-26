@@ -9,8 +9,15 @@ def bin_search(asc_array, item):
     return l
 
 
+def linear_search(asc_array, item):
+    for i, element in enumerate(asc_array):
+        if element >= item:
+            return i - 1
+    return len(asc_array) - 1
+
+
 def get_basement(blocks_dists, bench_length):
-    left_bound = bin_search(blocks_dists, bench_length / 2)
+    left_bound = linear_search(blocks_dists, bench_length / 2)
     left_value = blocks_dists[left_bound]
     if (bench_length / 2 - (left_value + 0.5)) < 0.5:
         return blocks_dists[left_bound:left_bound + 1]
